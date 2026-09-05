@@ -1,30 +1,20 @@
-<<<<<<< HEAD
+# DevOps course Flask Application
 from flask import Flask, request, jsonify
 import requests
 
 app = Flask(__name__)
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "qwen2.5:0.5b"  # swap for whatever model you've actually pulled
+MODEL_NAME = "qwen2.5:0.5b"
 
 @app.route("/")
 def main():
     return ">Hello, and Welcome to My Home Lab Project!"
-=======
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route("/")
-def main():
-    return "Hello, and Welcome to My Home Lab Project!"
->>>>>>> 79d4202503eea66cb76498ae59ac42474a5d5840
 
 @app.route("/services")
 def services():
     return "Version 1 work in progress!"
 
-<<<<<<< HEAD
 @app.route("/chat")
 def chat_page():
     return CHAT_HTML
@@ -84,7 +74,3 @@ CHAT_HTML = """
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8080)
-=======
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=8080)
->>>>>>> 79d4202503eea66cb76498ae59ac42474a5d5840
