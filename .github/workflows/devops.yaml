@@ -28,12 +28,12 @@ jobs:
         uses: docker/build-push-action@v6.18.0
         with:
           file: ./Dockerfile
-          tags: king950e/devopspython:${{ github.sha }}
+          tags: king950/devopspython:${{ github.sha }}
           push: true
       - name: Updating image tag inside manifest files
         run: |
           pip install yq
-          yq -Yi '.spec.template.spec.containers[0].image = "king950e/devopspython:${{ github.sha }}"' ./manifests/02_devopsdep.yaml
+          yq -Yi '.spec.template.spec.containers[0].image = "king950/devopspython:${{ github.sha }}"' ./manifests/02_devopsdep.yaml
       - name: Commit and Push the code
         run: |
           git config user.name "king950e"
