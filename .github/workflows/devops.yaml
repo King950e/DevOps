@@ -36,7 +36,7 @@ jobs:
           push: true
       - name: Updating image tag inside manifest files
         run: |
-          wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O ./yq
+          curl -L -o ./yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
           chmod +x ./yq
           ./yq -i '.spec.template.spec.containers[0].image = "king950/devopspython:${{ github.sha }}"' ./manifests/02_devopsdep.yaml
       - name: Commit and Push the code
