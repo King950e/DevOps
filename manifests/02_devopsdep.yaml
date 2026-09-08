@@ -16,5 +16,5 @@ spec:
         app: devopsdep
     spec:
       containers:
-        - image: king950/devopspython:d180ad5366944b2b6c76572631d272f60c95aa11
+        - image: king950/devopspython:023a2c61bf00dd7988f9f03d4e466862f5ed85ee
           name: devopspython
