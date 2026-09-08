@@ -36,8 +36,9 @@ jobs:
           push: true
       - name: Updating image tag inside manifest files
         run: |
-          pip install yq
-          yq -Yi '.spec.template.spec.containers[0].image = "king950/devopspython:${{ github.sha }}"' ./manifests/02_devopsdep.yaml
+          wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O ./yq
+          chmod +x ./yq
+          ./yq -i '.spec.template.spec.containers[0].image = "king950/devopspython:${{ github.sha }}"' ./manifests/02_devopsdep.yaml
       - name: Commit and Push the code
         run: |
           git config user.name "king950e"
